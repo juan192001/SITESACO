@@ -5,11 +5,15 @@
  */
 package SITESACO;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juanarcilagomez
  */
 public class Registropaci extends javax.swing.JFrame {
+
+    Pacientes clil   = new Pacientes();
 
     /**
      * Creates new form Registropaci
@@ -37,7 +41,7 @@ public class Registropaci extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        nombrepaci1 = new javax.swing.JTextField();
+        nombrepaci = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         fechaingpaci = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -87,7 +91,7 @@ public class Registropaci extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Capturar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -103,9 +107,9 @@ public class Registropaci extends javax.swing.JFrame {
 
         jLabel5.setText("Documento: ");
 
-        nombrepaci1.addActionListener(new java.awt.event.ActionListener() {
+        nombrepaci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombrepaci1ActionPerformed(evt);
+                nombrepaciActionPerformed(evt);
             }
         });
 
@@ -139,10 +143,7 @@ public class Registropaci extends javax.swing.JFrame {
                         .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(209, 209, 209))))
+                        .addGap(84, 84, 84))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -162,9 +163,12 @@ public class Registropaci extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombrepaci1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(188, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -181,7 +185,7 @@ public class Registropaci extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombrepaci1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,9 +198,9 @@ public class Registropaci extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(26, 26, 26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -220,17 +224,24 @@ public class Registropaci extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 //Pacientes paci = new Pacientes(jTextField2.getText());
 //paci.agregarPersona();
-        System.out.println(docpaci.getText());
-        System.out.println(docpaci.getText());
-        System.out.println(fechanacipaci.getText());
-        System.out.println(fechaingpaci.getText());
+        clil.setNombre(nombrepaci.getText());
+        clil.setDoc(docpaci.getText());
+        clil.setNacimiento(fechanacipaci.getText());
+        clil.setFechaing(fechaingpaci.getText());
+        JOptionPane.showMessageDialog(null, "Datos capturados");
+        
+        nombrepaci.setText("");
+        docpaci.setText("");
+        fechanacipaci.setText("");
+        fechaingpaci.setText("");
+
 //persistencia.guardarEnArchivoPacientes(pacientes, "pacientes.txt");
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void nombrepaci1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrepaci1ActionPerformed
+    private void nombrepaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrepaciActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombrepaci1ActionPerformed
+    }//GEN-LAST:event_nombrepaciActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -294,6 +305,6 @@ public class Registropaci extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JTextField nombrepaci1;
+    private javax.swing.JTextField nombrepaci;
     // End of variables declaration//GEN-END:variables
 }
