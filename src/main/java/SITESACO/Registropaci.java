@@ -47,7 +47,6 @@ public class Registropaci extends javax.swing.JFrame {
         fechaingpaci = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         fechanacipaci = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -131,8 +130,6 @@ public class Registropaci extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("Que especialidad necesita el paciente?");
-
         javax.swing.GroupLayout AngiologiaLayout = new javax.swing.GroupLayout(Angiologia);
         Angiologia.setLayout(AngiologiaLayout);
         AngiologiaLayout.setHorizontalGroup(
@@ -149,23 +146,18 @@ public class Registropaci extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(84, 84, 84))))
             .addGroup(AngiologiaLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addComponent(jLabel8)))
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(233, Short.MAX_VALUE))
             .addGroup(AngiologiaLayout.createSequentialGroup()
                 .addGap(303, 303, 303)
@@ -199,9 +191,7 @@ public class Registropaci extends javax.swing.JFrame {
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addGap(152, 152, 152)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -307,7 +297,6 @@ public class Registropaci extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTextField nombrepaci;
