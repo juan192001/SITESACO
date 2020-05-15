@@ -14,17 +14,24 @@ import javax.swing.JOptionPane;
  */
 public class Registropaci extends javax.swing.JFrame {
 
-    Pacientes paciente = new Pacientes();
+    
     Persistencia persistencia = new Persistencia();
     ArrayList<Persona> pacientes = new ArrayList<Persona>();
+   
 
+  
+   
+   
     /**
      * Creates new form Registropaci
      */
     public Registropaci() {
         initComponents();
         this.setLocationRelativeTo(null);
+       
+       
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -236,6 +243,7 @@ public class Registropaci extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 //Pacientes paci = new Pacientes(jTextField2.getText());
 //paci.agregarPersona();
+Pacientes paciente = new Pacientes();
 //capturar los datos del paciente
         paciente.setNombre(nombrepaci.getText());
         paciente.setDoc(docpaci.getText());
