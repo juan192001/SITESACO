@@ -5,6 +5,7 @@
  */
 package SITESACO;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,8 +14,9 @@ import javax.swing.JOptionPane;
  */
 public class Registropaci extends javax.swing.JFrame {
 
-    Pacientes clil = new Pacientes();
+    Pacientes paciente = new Pacientes();
     Persistencia persistencia = new Persistencia();
+     ArrayList<Persona> pacientes = new ArrayList<Persona>();
    
     /**
      * Creates new form Registropaci
@@ -191,7 +193,7 @@ public class Registropaci extends javax.swing.JFrame {
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -216,13 +218,15 @@ public class Registropaci extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 //Pacientes paci = new Pacientes(jTextField2.getText());
 //paci.agregarPersona();
-        clil.setNombre(nombrepaci.getText());
-        clil.setDoc(docpaci.getText());
-        clil.setNacimiento(fechanacipaci.getText());
-        clil.setFechaing(fechaingpaci.getText());
-       
-       
+        paciente.setNombre(nombrepaci.getText());
+        paciente.setDoc(docpaci.getText());
+        paciente.setNacimiento(fechanacipaci.getText());
+        paciente.setFechaing(fechaingpaci.getText());
         JOptionPane.showMessageDialog(null, "Datos capturados");
+        pacientes.add(paciente);
+        persistencia.guardarEnArchivoPacientes(pacientes, "pacientes.txt");
+       
+       
 
         nombrepaci.setText("");
         docpaci.setText("");
