@@ -16,13 +16,14 @@ public class Registropaci extends javax.swing.JFrame {
 
     Pacientes paciente = new Pacientes();
     Persistencia persistencia = new Persistencia();
-     ArrayList<Persona> pacientes = new ArrayList<Persona>();
-   
+    ArrayList<Persona> pacientes = new ArrayList<Persona>();
+
     /**
      * Creates new form Registropaci
      */
     public Registropaci() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -49,6 +50,8 @@ public class Registropaci extends javax.swing.JFrame {
         fechaingpaci = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         fechanacipaci = new javax.swing.JTextField();
+        tratamiento = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
@@ -132,6 +135,15 @@ public class Registropaci extends javax.swing.JFrame {
             }
         });
 
+        tratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AngiologÌa", "DermatologÌa", "GinecologÌa", "OftamologÌa", "OtorrinolaringologÌa", "UrologÌa", "TraumatologÌa" }));
+        tratamiento.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                tratamientoItemStateChanged(evt);
+            }
+        });
+
+        jLabel8.setText("Tratamiento");
+
         javax.swing.GroupLayout AngiologiaLayout = new javax.swing.GroupLayout(Angiologia);
         Angiologia.setLayout(AngiologiaLayout);
         AngiologiaLayout.setHorizontalGroup(
@@ -148,23 +160,25 @@ public class Registropaci extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(84, 84, 84))))
             .addGroup(AngiologiaLayout.createSequentialGroup()
+                .addGap(303, 303, 303)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(AngiologiaLayout.createSequentialGroup()
                 .addGap(113, 113, 113)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(jLabel6)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(233, Short.MAX_VALUE))
-            .addGroup(AngiologiaLayout.createSequentialGroup()
-                .addGap(303, 303, 303)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         AngiologiaLayout.setVerticalGroup(
             AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,7 +207,11 @@ public class Registropaci extends javax.swing.JFrame {
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -218,16 +236,20 @@ public class Registropaci extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 //Pacientes paci = new Pacientes(jTextField2.getText());
 //paci.agregarPersona();
+//capturar los datos del paciente
         paciente.setNombre(nombrepaci.getText());
         paciente.setDoc(docpaci.getText());
         paciente.setNacimiento(fechanacipaci.getText());
         paciente.setFechaing(fechaingpaci.getText());
+        String trata = (String) tratamiento.getSelectedItem();
+        paciente.setTratamiento(trata);
+//mensaje de aviso de capturacion de datos
         JOptionPane.showMessageDialog(null, "Datos capturados");
+        //se añade al arraylist
         pacientes.add(paciente);
+        //lo guarda
         persistencia.guardarEnArchivoPacientes(pacientes, "pacientes.txt");
-       
-       
-
+//reinicia los txt
         nombrepaci.setText("");
         docpaci.setText("");
         fechanacipaci.setText("");
@@ -252,6 +274,11 @@ public class Registropaci extends javax.swing.JFrame {
     private void fechanacipaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechanacipaciActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fechanacipaciActionPerformed
+
+    private void tratamientoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tratamientoItemStateChanged
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_tratamientoItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -301,8 +328,10 @@ public class Registropaci extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTextField nombrepaci;
+    private javax.swing.JComboBox<String> tratamiento;
     // End of variables declaration//GEN-END:variables
 }

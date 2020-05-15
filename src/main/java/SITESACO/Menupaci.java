@@ -16,6 +16,7 @@ public class Menupaci extends javax.swing.JFrame {
      */
     public Menupaci() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
