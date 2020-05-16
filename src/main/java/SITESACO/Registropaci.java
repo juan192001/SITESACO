@@ -59,6 +59,7 @@ public class Registropaci extends javax.swing.JFrame {
         fechanacipaci = new javax.swing.JTextField();
         tratamiento = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
 
@@ -151,6 +152,13 @@ public class Registropaci extends javax.swing.JFrame {
 
         jLabel8.setText("Tratamiento");
 
+        jButton2.setText("Regresar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout AngiologiaLayout = new javax.swing.GroupLayout(Angiologia);
         Angiologia.setLayout(AngiologiaLayout);
         AngiologiaLayout.setHorizontalGroup(
@@ -167,10 +175,6 @@ public class Registropaci extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(84, 84, 84))))
             .addGroup(AngiologiaLayout.createSequentialGroup()
-                .addGap(303, 303, 303)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(AngiologiaLayout.createSequentialGroup()
                 .addGap(113, 113, 113)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -180,6 +184,10 @@ public class Registropaci extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(tratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -218,8 +226,11 @@ public class Registropaci extends javax.swing.JFrame {
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(71, 71, 71))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -288,6 +299,12 @@ Pacientes paciente = new Pacientes();
 // TODO add your handling code here:
     }//GEN-LAST:event_tratamientoItemStateChanged
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+Menupaci volver = new Menupaci();
+volver.setVisible(true);
+this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -329,6 +346,7 @@ Pacientes paciente = new Pacientes();
     private javax.swing.JTextField fechaingpaci;
     private javax.swing.JTextField fechanacipaci;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
