@@ -1,1 +1,1 @@
-#494,AngiologÌa,cami,1,2
+#3,OtorrinolaringologÌa,juan,1,2#12,DermatologÌa,dani ,34,25#12,GinecologÌa,cami,12,12#7,GinecologÌa,ricardo,5,6

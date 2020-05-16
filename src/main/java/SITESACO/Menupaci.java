@@ -99,8 +99,13 @@ public class Menupaci extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Ver historial");
+        jButton3.setText("Ver Detalles");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -108,6 +113,11 @@ public class Menupaci extends javax.swing.JFrame {
         });
 
         jButton4.setText("Dar de alta");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jButton6.setText("Eliminar");
 
@@ -234,10 +244,20 @@ this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-Verlista ver = new Verlista();
-ver.setVisible(true);
-this.dispose();// TODO add your handling code here:
+
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+Verlista entrar = new Verlista();
+entrar.setVisible(true);
+this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+new Eliyalt().setVisible(true);
+this.dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
