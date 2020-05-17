@@ -17,7 +17,7 @@ public class Registropaci extends javax.swing.JFrame {
     Persistencia persistencia = new Persistencia();
     ArrayList<Persona> pacientes = new ArrayList<Persona>();
      ArrayList<Persona> medicos = new ArrayList<Persona>();
-    Pacientes paciente = new Pacientes();
+   
     String txtPacientes = Persistencia.readFromFile("pacientes.txt");
      
 
@@ -149,6 +149,11 @@ public class Registropaci extends javax.swing.JFrame {
                 tratamientoItemStateChanged(evt);
             }
         });
+        tratamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tratamientoActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Tratamiento");
 
@@ -254,6 +259,7 @@ public class Registropaci extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 //Pacientes paci = new Pacientes(jTextField2.getText());
 //paci.agregarPersona();
+ Pacientes paciente = new Pacientes();
 
 //capturar los datos del paciente
         paciente.setNombre(nombrepaci.getText());
@@ -304,6 +310,10 @@ public class Registropaci extends javax.swing.JFrame {
         volver.setVisible(true);
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void tratamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tratamientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tratamientoActionPerformed
 
     /**
      * @param args the command line arguments
