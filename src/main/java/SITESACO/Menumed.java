@@ -17,6 +17,7 @@ public class Menumed extends javax.swing.JFrame {
     public Menumed() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
