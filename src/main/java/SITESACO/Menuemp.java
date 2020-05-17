@@ -16,6 +16,7 @@ public class Menuemp extends javax.swing.JFrame {
      */
     public Menuemp() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
