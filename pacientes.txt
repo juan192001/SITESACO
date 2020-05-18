@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 
+=======
+#1,AngiologÌa,juan,1,1#2,AngiologÌa,dani,2,2
+>>>>>>> 16cbec638795db7f9af1e43aa33179a432d2666f

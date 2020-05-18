@@ -8,7 +8,7 @@ public class Pacientes extends Persona {
     //Atributos ˙nicos de pacientes
 
     private String fechaing;
-    private String fechasal;
+    private String fechasal = "no sale";
     private String tratamiento;
     private Medicos medicotrata;
 
@@ -18,6 +18,7 @@ public class Pacientes extends Persona {
         this.fechaing = fechaing;
         this.tratamiento = tratamiento;
         this.medicotrata = medicotrata;
+        this.fechasal = "m";
     }
 
     public Pacientes() {
@@ -236,9 +237,10 @@ public class Pacientes extends Persona {
 			if(campos[0]!=null)  { 
 				// String fechaing, String tratamiento, String nombre, String doc, String nacimiento
 				Pacientes nuevaPersona = new Pacientes(campos[0], campos[1], campos[2], campos[3], campos[4]);
+                                nuevaPersona.setFechasal(campos[5]);
 				// buscar si tiene doctor tratante
-				if(campos.length > 5 ) {
-					String medDocumento = campos[5];
+				if(campos.length > 6 ) {
+					String medDocumento = campos[6];
 					if(medDocumento!=null ) {
 						for (Persona med : medicos) {
 							// si el doc del medico coincide, lo asinamos al paciente

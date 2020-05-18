@@ -50,7 +50,7 @@ public class Persistencia {
         for (Persona persona : listaPersona) {
             Pacientes pac = (Pacientes) persona;
             // fechaing, String tratamiento, String nombre, String doc, String nacimiento
-            String contactoString = pac.getFechaing() + "," + pac.getTratamiento() + "," + pac.getNombre() + "," + pac.getDoc() + "," + pac.getNacimiento();
+            String contactoString = pac.getFechaing() + "," + pac.getTratamiento() + "," + pac.getNombre() + "," + pac.getDoc() + "," + pac.getNacimiento() + "," + pac.getFechasal();
             if (pac.getMedicotrata() != null) {
                 contactoString = contactoString + "," + pac.getMedicotrata().getDoc();
             }
