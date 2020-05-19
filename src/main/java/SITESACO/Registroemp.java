@@ -5,30 +5,18 @@
  */
 package SITESACO;
 
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author juanarcilagomez
  */
-public class Registropaci extends javax.swing.JFrame {
-
-    Persistencia persistencia = new Persistencia();
-    ArrayList<Persona> pacientes = new ArrayList<Persona>();
-    ArrayList<Persona> medicos = new ArrayList<Persona>();
-    String txtPacientes = Persistencia.readFromFile("pacientes.txt");
+public class Registroemp extends javax.swing.JFrame {
 
     /**
-     * Creates new form Registropaci
+     * Creates new form Registroemp
      */
-    public Registropaci() {
+    public Registroemp() {
         initComponents();
         this.setLocationRelativeTo(null);
-        if (txtPacientes != null) {
-            pacientes = Pacientes.convertirTXTaObjetos(txtPacientes, medicos);
-        }
-
     }
 
     /**
@@ -40,7 +28,6 @@ public class Registropaci extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
         Angiologia = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -55,11 +42,11 @@ public class Registropaci extends javax.swing.JFrame {
         fechaingpaci = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         fechanacipaci = new javax.swing.JTextField();
-        tratamiento = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-
-        jLabel4.setText("jLabel4");
+        fechaingpaci2 = new javax.swing.JTextField();
+        fechaingpaci3 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,7 +120,7 @@ public class Registropaci extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Fecha de ingreso:");
+        jLabel7.setText("Cargo:");
 
         fechanacipaci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,19 +128,7 @@ public class Registropaci extends javax.swing.JFrame {
             }
         });
 
-        tratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AngiologÌa", "DermatologÌa", "GinecologÌa", "OftamologÌa", "OtorrinolaringologÌa", "UrologÌa", "TraumatologÌa" }));
-        tratamiento.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                tratamientoItemStateChanged(evt);
-            }
-        });
-        tratamiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tratamientoActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setText("Tratamiento");
+        jLabel8.setText("Tipo de cargo");
 
         jButton2.setText("Regresar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,6 +136,20 @@ public class Registropaci extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+
+        fechaingpaci2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaingpaci2ActionPerformed(evt);
+            }
+        });
+
+        fechaingpaci3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaingpaci3ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Salario:");
 
         javax.swing.GroupLayout AngiologiaLayout = new javax.swing.GroupLayout(Angiologia);
         Angiologia.setLayout(AngiologiaLayout);
@@ -178,25 +167,30 @@ public class Registropaci extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(84, 84, 84))))
             .addGroup(AngiologiaLayout.createSequentialGroup()
-                .addGap(113, 113, 113)
+                .addGap(123, 123, 123)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
-                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(233, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(AngiologiaLayout.createSequentialGroup()
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(AngiologiaLayout.createSequentialGroup()
+                            .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel8))
+                            .addGap(42, 42, 42)
+                            .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fechaingpaci3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fechaingpaci2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         AngiologiaLayout.setVerticalGroup(
             AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,31 +203,35 @@ public class Registropaci extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(38, 38, 38)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(32, 32, 32)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel5)
+                    .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel6)
+                    .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel7)
+                    .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                    .addComponent(jLabel8)
+                    .addComponent(fechaingpaci3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(fechaingpaci2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(71, 71, 71))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,7 +242,9 @@ public class Registropaci extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Angiologia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Angiologia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -255,40 +255,16 @@ public class Registropaci extends javax.swing.JFrame {
     }//GEN-LAST:event_docpaciActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-//Pacientes paci = new Pacientes(jTextField2.getText());
-//paci.agregarPersona();
-        Pacientes paciente = new Pacientes();
-
-//capturar los datos del paciente
-        paciente.setNombre(nombrepaci.getText());
-        paciente.setDoc(docpaci.getText());
-        paciente.setNacimiento(fechanacipaci.getText());
-        paciente.setFechaing(fechaingpaci.getText());
-        String trata = (String) tratamiento.getSelectedItem();
-        paciente.setTratamiento(trata);
-//mensaje de aviso de capturacion de datos
-        JOptionPane.showMessageDialog(null, "Datos capturados");
-        //se añade al arraylist
-        pacientes.add(paciente);
-        //lo guarda
-        persistencia.guardarEnArchivoPacientes(pacientes, "pacientes.txt");
-//reinicia los txt
-        nombrepaci.setText("");
-        docpaci.setText("");
-        fechanacipaci.setText("");
-        fechaingpaci.setText("");
-
-//persistencia.guardarEnArchivoPacientes(pacientes, "pacientes.txt");
-// TODO add your handling code here:
+      
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void nombrepaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrepaciActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombrepaciActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void nombrepaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrepaciActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombrepaciActionPerformed
 
     private void fechaingpaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaingpaciActionPerformed
         // TODO add your handling code here:
@@ -304,14 +280,13 @@ public class Registropaci extends javax.swing.JFrame {
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void tratamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tratamientoActionPerformed
+    private void fechaingpaci2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaingpaci2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tratamientoActionPerformed
+    }//GEN-LAST:event_fechaingpaci2ActionPerformed
 
-    private void tratamientoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tratamientoItemStateChanged
-
+    private void fechaingpaci3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaingpaci3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tratamientoItemStateChanged
+    }//GEN-LAST:event_fechaingpaci3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,20 +305,20 @@ public class Registropaci extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Registropaci.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registroemp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Registropaci.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registroemp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Registropaci.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registroemp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Registropaci.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registroemp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Registropaci().setVisible(true);
+                new Registroemp().setVisible(true);
             }
         });
     }
@@ -352,6 +327,8 @@ public class Registropaci extends javax.swing.JFrame {
     private javax.swing.JPanel Angiologia;
     private javax.swing.JTextField docpaci;
     private javax.swing.JTextField fechaingpaci;
+    private javax.swing.JTextField fechaingpaci2;
+    private javax.swing.JTextField fechaingpaci3;
     private javax.swing.JTextField fechanacipaci;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -366,6 +343,5 @@ public class Registropaci extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTextField nombrepaci;
-    private javax.swing.JComboBox<String> tratamiento;
     // End of variables declaration//GEN-END:variables
 }

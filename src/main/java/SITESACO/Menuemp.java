@@ -17,6 +17,7 @@ public class Menuemp extends javax.swing.JFrame {
     public Menuemp() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -204,14 +205,14 @@ public class Menuemp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Menupaci paci= new Menupaci();
-        paci.setVisible(true);
-        this.dispose();
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+new Siyno().setVisible(true);
+this.dispose();
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
