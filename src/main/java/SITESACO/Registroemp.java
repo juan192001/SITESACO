@@ -5,11 +5,20 @@
  */
 package SITESACO;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juanarcilagomez
  */
 public class Registroemp extends javax.swing.JFrame {
+    Persistencia persistencia = new Persistencia();
+    ArrayList<Persona> empleados = new ArrayList<Persona>();
+    ArrayList<Medicos> medicosl = new ArrayList<Medicos>();
+    String txtEmpleados = Persistencia.readFromFile("empleados.txt"); 
+    Registropaci lista = new Registropaci();
+    
 
     /**
      * Creates new form Registroemp
@@ -17,6 +26,11 @@ public class Registroemp extends javax.swing.JFrame {
     public Registroemp() {
         initComponents();
         this.setLocationRelativeTo(null);
+        if (txtEmpleados != null) {
+            empleados = Empleados.convertirTXTaObjetos(txtEmpleados);
+           
+            
+        }
     }
 
     /**
@@ -33,19 +47,19 @@ public class Registroemp extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        docpaci = new javax.swing.JTextField();
+        docemp = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        nombrepaci = new javax.swing.JTextField();
+        nombreemp = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        fechaingpaci = new javax.swing.JTextField();
+        cargoemp = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        fechanacipaci = new javax.swing.JTextField();
+        fechanaciemp = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        fechaingpaci2 = new javax.swing.JTextField();
-        fechaingpaci3 = new javax.swing.JTextField();
+        salarioemp = new javax.swing.JTextField();
+        tipocargoemp = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,9 +98,9 @@ public class Registroemp extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel2.setText("MENU PRINCIPAL");
 
-        docpaci.addActionListener(new java.awt.event.ActionListener() {
+        docemp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                docpaciActionPerformed(evt);
+                docempActionPerformed(evt);
             }
         });
 
@@ -106,25 +120,25 @@ public class Registroemp extends javax.swing.JFrame {
 
         jLabel5.setText("Documento: ");
 
-        nombrepaci.addActionListener(new java.awt.event.ActionListener() {
+        nombreemp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombrepaciActionPerformed(evt);
+                nombreempActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Fecha de nacimiento:");
 
-        fechaingpaci.addActionListener(new java.awt.event.ActionListener() {
+        cargoemp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaingpaciActionPerformed(evt);
+                cargoempActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Cargo:");
 
-        fechanacipaci.addActionListener(new java.awt.event.ActionListener() {
+        fechanaciemp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechanacipaciActionPerformed(evt);
+                fechanaciempActionPerformed(evt);
             }
         });
 
@@ -137,15 +151,15 @@ public class Registroemp extends javax.swing.JFrame {
             }
         });
 
-        fechaingpaci2.addActionListener(new java.awt.event.ActionListener() {
+        salarioemp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaingpaci2ActionPerformed(evt);
+                salarioempActionPerformed(evt);
             }
         });
 
-        fechaingpaci3.addActionListener(new java.awt.event.ActionListener() {
+        tipocargoemp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaingpaci3ActionPerformed(evt);
+                tipocargoempActionPerformed(evt);
             }
         });
 
@@ -184,12 +198,12 @@ public class Registroemp extends javax.swing.JFrame {
                                 .addComponent(jLabel8))
                             .addGap(42, 42, 42)
                             .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fechaingpaci3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(fechaingpaci2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(fechanaciemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cargoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(docemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nombreemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tipocargoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(salarioemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         AngiologiaLayout.setVerticalGroup(
@@ -206,27 +220,27 @@ public class Registroemp extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombrepaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreemp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(docpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(docemp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(fechanacipaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechanaciemp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(fechaingpaci, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cargoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(fechaingpaci3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tipocargoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(fechaingpaci2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(salarioemp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,29 +264,52 @@ public class Registroemp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void docpaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docpaciActionPerformed
+    private void docempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docempActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_docpaciActionPerformed
+    }//GEN-LAST:event_docempActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
       
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+Empleados empleado = new Empleados();
+
+        empleado.setNombre(nombreemp.getText());
+        empleado.setDoc(docemp.getText());
+        empleado.setNacimiento(fechanaciemp.getText());
+        empleado.setCargo(cargoemp.getText());
+        empleado.setTipocargo(tipocargoemp.getText());
+        empleado.setSalario(Integer.parseInt(salarioemp.getText()));
+        
+//mensaje de aviso de capturacion de datos
+        JOptionPane.showMessageDialog(null, "Datos capturados");
+        //se añade al arraylist
+        empleados.add(empleado);
+        
+        //lo guarda
+         persistencia.guardarEnArchivoEmpleado(empleados, medicosl, "empleados.txt");
+//reinicia los txt
+        nombreemp.setText("");
+        docemp.setText("");
+        fechanaciemp.setText("");
+        cargoemp.setText("");
+        tipocargoemp.setText("");
+        salarioemp.setText("");
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void nombrepaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrepaciActionPerformed
+    private void nombreempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreempActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombrepaciActionPerformed
+    }//GEN-LAST:event_nombreempActionPerformed
 
-    private void fechaingpaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaingpaciActionPerformed
+    private void cargoempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoempActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fechaingpaciActionPerformed
+    }//GEN-LAST:event_cargoempActionPerformed
 
-    private void fechanacipaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechanacipaciActionPerformed
+    private void fechanaciempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechanaciempActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fechanacipaciActionPerformed
+    }//GEN-LAST:event_fechanaciempActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Menupaci volver = new Menupaci();
@@ -280,13 +317,13 @@ public class Registroemp extends javax.swing.JFrame {
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void fechaingpaci2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaingpaci2ActionPerformed
+    private void salarioempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salarioempActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fechaingpaci2ActionPerformed
+    }//GEN-LAST:event_salarioempActionPerformed
 
-    private void fechaingpaci3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaingpaci3ActionPerformed
+    private void tipocargoempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipocargoempActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_fechaingpaci3ActionPerformed
+    }//GEN-LAST:event_tipocargoempActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,11 +362,9 @@ public class Registroemp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Angiologia;
-    private javax.swing.JTextField docpaci;
-    private javax.swing.JTextField fechaingpaci;
-    private javax.swing.JTextField fechaingpaci2;
-    private javax.swing.JTextField fechaingpaci3;
-    private javax.swing.JTextField fechanacipaci;
+    private javax.swing.JTextField cargoemp;
+    private javax.swing.JTextField docemp;
+    private javax.swing.JTextField fechanaciemp;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -342,6 +377,8 @@ public class Registroemp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JTextField nombrepaci;
+    private javax.swing.JTextField nombreemp;
+    private javax.swing.JTextField salarioemp;
+    private javax.swing.JTextField tipocargoemp;
     // End of variables declaration//GEN-END:variables
 }

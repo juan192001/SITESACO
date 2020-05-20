@@ -81,12 +81,12 @@
                               </Group>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="fechanacipaci" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
-                                  <Component id="fechaingpaci" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
-                                  <Component id="docpaci" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
-                                  <Component id="nombrepaci" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
-                                  <Component id="fechaingpaci3" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
-                                  <Component id="fechaingpaci2" min="-2" pref="332" max="-2" attributes="0"/>
+                                  <Component id="fechanaciemp" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
+                                  <Component id="cargoemp" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
+                                  <Component id="docemp" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
+                                  <Component id="nombreemp" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
+                                  <Component id="tipocargoemp" alignment="0" min="-2" pref="332" max="-2" attributes="0"/>
+                                  <Component id="salarioemp" min="-2" pref="332" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -109,32 +109,32 @@
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="nombrepaci" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="nombreemp" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="docpaci" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="docemp" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fechanacipaci" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="fechanaciemp" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fechaingpaci" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="cargoemp" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fechaingpaci3" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="tipocargoemp" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fechaingpaci2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                      <Component id="salarioemp" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="51" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -203,9 +203,9 @@
             <Property name="text" type="java.lang.String" value="MENU PRINCIPAL"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="docpaci">
+        <Component class="javax.swing.JTextField" name="docemp">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="docpaciActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="docempActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
@@ -227,9 +227,9 @@
             <Property name="text" type="java.lang.String" value="Documento: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="nombrepaci">
+        <Component class="javax.swing.JTextField" name="nombreemp">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombrepaciActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreempActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -237,9 +237,9 @@
             <Property name="text" type="java.lang.String" value="Fecha de nacimiento:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="fechaingpaci">
+        <Component class="javax.swing.JTextField" name="cargoemp">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fechaingpaciActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cargoempActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -247,9 +247,9 @@
             <Property name="text" type="java.lang.String" value="Cargo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="fechanacipaci">
+        <Component class="javax.swing.JTextField" name="fechanaciemp">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fechanacipaciActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fechanaciempActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -265,14 +265,14 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="fechaingpaci2">
+        <Component class="javax.swing.JTextField" name="salarioemp">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fechaingpaci2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salarioempActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="fechaingpaci3">
+        <Component class="javax.swing.JTextField" name="tipocargoemp">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fechaingpaci3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tipocargoempActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">

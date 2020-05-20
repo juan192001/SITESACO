@@ -1,1 +1,1 @@
-#dermatologo,medico,10,daniel,12,19,19,si,/Dermatologia/Traumatologia#medico,medico,10000,juanes,9,19,1000414047,si,/Dermatologia
+#gamer,lol,2000,juan,13,19#loko,lol,10,dani ,19,20#ayudador,lol,1,juank,10,20#mk,mk,1,mk,mk,mk#lol,lol,2,jorge,1,1
