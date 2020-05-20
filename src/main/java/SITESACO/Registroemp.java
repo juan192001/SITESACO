@@ -28,8 +28,11 @@ public class Registroemp extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         if (txtEmpleados != null) {
             empleados = Empleados.convertirTXTaObjetos(txtEmpleados);
-           
-            
+            medicosl = Medicos.convertirTXTaObjetosMedicos(txtEmpleados);
+            for (Medicos med : medicosl) {
+                empleados.add((Persona) med);
+                lista.medicos.add(med);
+            }
         }
     }
 

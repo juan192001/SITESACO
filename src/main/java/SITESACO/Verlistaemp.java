@@ -10,35 +10,36 @@ package SITESACO;
  * @author juanarcilagomez
  */
 public class Verlistaemp extends javax.swing.JFrame {
-Registroemp lista = new Registroemp();
+
+    Registroemp lista = new Registroemp();
 
     /**
      * Creates new form Verlistaemp
      */
     public Verlistaemp() {
         initComponents();
-        
+
         String tabla[][] = new String[lista.empleados.size()][3];
-        
-        for (int i = 0; i < lista.empleados.size(); i++) {
-            Empleados emp = (Empleados)lista.empleados.get(i);
-            tabla[i][0] = lista.empleados.get(i).getNombre();
-            tabla[i][1] = lista.empleados.get(i).getDoc();
-            tabla[i][2] = emp.getCargo();
+
+            for (int i = 0; i < lista.empleados.size(); i++) {
+                Empleados emp = (Empleados) lista.empleados.get(i);
+                tabla[i][0] = lista.empleados.get(i).getNombre();
+                tabla[i][1] = lista.empleados.get(i).getDoc();
+                tabla[i][2] = emp.getCargo();
 
         }
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            tabla,
-            new String [] {
-                "Nombre:", "Documento:", "Cargo:"
-            }
+                tabla,
+                new String[]{
+                    "Nombre:", "Documento:", "Cargo:"
+                }
         ) {
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                 false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
     }
@@ -60,6 +61,7 @@ Registroemp lista = new Registroemp();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Regresar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,6 +127,13 @@ Registroemp lista = new Registroemp();
             }
         });
 
+        jButton1.setText("actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -145,9 +154,11 @@ Registroemp lista = new Registroemp();
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
                         .addComponent(Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(123, 123, 123)))
-                .addGap(0, 184, Short.MAX_VALUE))
+                .addGap(0, 178, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +174,9 @@ Registroemp lista = new Registroemp();
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGap(50, 50, 50))
         );
 
@@ -186,6 +199,10 @@ Registroemp lista = new Registroemp();
         volver.setVisible(true);
         this.dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_RegresarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,6 +241,7 @@ Registroemp lista = new Registroemp();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Regresar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

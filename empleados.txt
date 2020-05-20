@@ -1,1 +1,1 @@
-#gamer,lol,2000,juan,13,19#loko,lol,10,dani ,19,20#ayudador,lol,1,juank,10,20#mk,mk,1,mk,mk,mk#lol,lol,2,jorge,1,1
+#1,1,1,pi,1,1#22,2,2,po,2,2
