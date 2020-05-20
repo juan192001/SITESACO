@@ -17,7 +17,6 @@ public class Registroemp extends javax.swing.JFrame {
     ArrayList<Persona> empleados = new ArrayList<Persona>();
     ArrayList<Medicos> medicosl = new ArrayList<Medicos>();
     String txtEmpleados = Persistencia.readFromFile("empleados.txt"); 
-    Registropaci lista = new Registropaci();
     
 
     /**

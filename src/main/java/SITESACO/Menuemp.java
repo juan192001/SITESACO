@@ -104,7 +104,12 @@ public class Menuemp extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel2.setText("MENU EMPLEADOS");
 
-        jButton4.setText("Modificar ficha");
+        jButton4.setText("Modificar empleado");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Retirar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -236,6 +241,12 @@ Menu volver = new Menu();
 volver.setVisible(true);
 this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+new Selecmodif().setVisible(true); 
+this.dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,8 @@
  */
 package SITESACO;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author juanarcilagomez
@@ -13,6 +15,7 @@ public class Verdetallesemp extends javax.swing.JFrame {
 
     Persistencia persistencia = new Persistencia();
     Registroemp lista = new Registroemp();
+
 
     /**
      * Creates new form Verdetalles
