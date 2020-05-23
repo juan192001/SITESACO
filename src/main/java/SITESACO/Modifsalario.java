@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
  * @author juanarcilagomez
  */
 public class Modifsalario extends javax.swing.JFrame {
-    Persistencia persistencia = new Persistencia();
-    Registroemp lista = new Registroemp();
+Menu lista = new Menu();
+Persistencia persistencia = new Persistencia();
     /**
      * Creates new form Siyno
      */

@@ -15,9 +15,7 @@ import javax.swing.JOptionPane;
 public class Registromed extends javax.swing.JFrame {
 
     Persistencia persistencia = new Persistencia();
-    String txtEmpleados = Persistencia.readFromFile("empleados.txt");
-    Registroemp lista1 = new Registroemp();
-    Registropaci lista = new Registropaci();
+    Menu lista = new Menu();
     ArrayList<Especialidad> listaesp = new ArrayList<Especialidad>();
 
     /**
@@ -26,14 +24,6 @@ public class Registromed extends javax.swing.JFrame {
     public Registromed() {
         initComponents();
         this.setLocationRelativeTo(null);
-        if (txtEmpleados != null) {
-            lista1.empleados = Empleados.convertirTXTaObjetos(txtEmpleados);
-            lista1.medicosl = Medicos.convertirTXTaObjetosMedicos(txtEmpleados);
-            for (Medicos med : lista1.medicosl) {
-                lista1.empleados.add((Persona) med);
-                lista.medicos.add(med);
-            }
-        }
     }
 
     /**
@@ -77,6 +67,7 @@ public class Registromed extends javax.swing.JFrame {
         cargomed = new javax.swing.JTextField();
         salariomed = new javax.swing.JTextField();
         idmed = new javax.swing.JTextField();
+        jCheckBox2 = new javax.swing.JCheckBox();
 
         jTextField1.setText("jTextField1");
 
@@ -118,7 +109,7 @@ public class Registromed extends javax.swing.JFrame {
         jLabel1.setText("GESTION EPS SITESACO");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        jLabel2.setText("MENU PRINCIPAL");
+        jLabel2.setText("MENU MEDICOS");
 
         jButton1.setText("Capturar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,6 +161,11 @@ public class Registromed extends javax.swing.JFrame {
         });
 
         jCheckBox3.setText("Otorrinolaringologia");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
 
         jCheckBox4.setText("Dermatologia");
         jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
@@ -179,12 +175,39 @@ public class Registromed extends javax.swing.JFrame {
         });
 
         jCheckBox5.setText("Urologia");
+        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox5ActionPerformed(evt);
+            }
+        });
 
         jCheckBox6.setText("Ginecologia");
+        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox6ActionPerformed(evt);
+            }
+        });
 
         jCheckBox7.setText("Traumatologia");
+        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox7ActionPerformed(evt);
+            }
+        });
 
         jCheckBox8.setText("Oftalmologia");
+        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox8ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox2.setText("COVID-19");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AngiologiaLayout = new javax.swing.GroupLayout(Angiologia);
         Angiologia.setLayout(AngiologiaLayout);
@@ -203,47 +226,36 @@ public class Registromed extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(AngiologiaLayout.createSequentialGroup()
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(45, 45, 45)
+                        .addGap(51, 51, 51)
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombremed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(docmed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(AngiologiaLayout.createSequentialGroup()
-                            .addGap(73, 73, 73)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(AngiologiaLayout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(fechanacimed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(AngiologiaLayout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addGap(71, 71, 71)
-                            .addComponent(cargomed))
-                        .addGroup(AngiologiaLayout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(salariomed, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                            .addComponent(docmed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nombremed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(79, 79, 79)
+                        .addComponent(cargomed, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(salariomed, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fechanacimed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox8)
                     .addGroup(AngiologiaLayout.createSequentialGroup()
                         .addComponent(jCheckBox1)
                         .addGap(1, 1, 1)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox4)
-                            .addComponent(jCheckBox6))
-                        .addGap(58, 58, 58)
-                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox5)
-                            .addComponent(jCheckBox3)
-                            .addComponent(jCheckBox7)))
                     .addGroup(AngiologiaLayout.createSequentialGroup()
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
@@ -252,7 +264,18 @@ public class Registromed extends javax.swing.JFrame {
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(residente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(idmed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel10)
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox4)
+                            .addComponent(jCheckBox6)
+                            .addComponent(jCheckBox8))
+                        .addGap(58, 58, 58)
+                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox7)
+                            .addComponent(jCheckBox5)
+                            .addComponent(jCheckBox3)
+                            .addComponent(jCheckBox2))))
                 .addGap(70, 70, 70))
         );
         AngiologiaLayout.setVerticalGroup(
@@ -283,39 +306,39 @@ public class Registromed extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(fechanacimed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addGap(6, 6, 6)
+                .addGap(11, 11, 11)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cargomed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
+                        .addGap(16, 16, 16)
+                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckBox4)
+                            .addComponent(salariomed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox5))
                         .addGap(18, 18, 18)
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(salariomed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jCheckBox6)
+                            .addComponent(jCheckBox7)))
                     .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox1)
-                            .addComponent(jCheckBox3))
-                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AngiologiaLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jCheckBox5))
-                            .addGroup(AngiologiaLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jCheckBox4)))
-                        .addGap(18, 18, 18)
-                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox7)
-                            .addComponent(jCheckBox6))))
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel4))
+                    .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCheckBox1)
+                        .addComponent(jCheckBox3)))
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addComponent(jCheckBox8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23))
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addComponent(jCheckBox2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -337,42 +360,47 @@ public class Registromed extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String resiIndex = (String)residente.getSelectedItem();
-        Medicos medico = new Medicos();
-        medico.setNombre(nombremed.getText());
-        medico.setDoc(docmed.getText());
-        medico.setNacimiento(fechanacimed.getText());
-        medico.setCargo(cargomed.getText());
-        medico.setTipocargo("Medico");
-        medico.setSalario(Integer.parseInt(salariomed.getText()));
-        medico.setIdmed(idmed.getText());
-        medico.setResidente(resiIndex);
-        
+
+        Empleados empleado = new Empleados();
+        String resiIndex = (String) residente.getSelectedItem();
+        empleado.setNombre(nombremed.getText());
+        empleado.setDoc(docmed.getText());
+        empleado.setNacimiento(fechanacimed.getText());
+        empleado.setCargo(cargomed.getText());
+        empleado.setSalario(Integer.parseInt(salariomed.getText()));
+        empleado.setTipocargo("medico");
+        lista.empleados.add(empleado);
+        Medicos med = new Medicos(empleado);
+        med.setIdmed(idmed.getText());
+        med.setResidente(resiIndex);
+        med.setEspecialidad(listaesp);
 
 //mensaje de aviso de capturacion de datos
         JOptionPane.showMessageDialog(null, "Datos capturados");
         //se añade al arraylist
-        lista.medicos.add(medico);
-        lista1.empleados.add(medico);
-        lista1.medicosl.add(medico);
+        lista.medicos.add(med);
+        lista.medicosl.add(med);
 
         //lo guarda
-        persistencia.guardarEnArchivoEmpleado(lista1.empleados, lista1.medicosl, "empleados.txt");
+        persistencia.guardarEnArchivoEmpleado(lista.empleados, lista.medicosl, "empleados.txt");
 //reinicia los txt
         nombremed.setText("");
         docmed.setText("");
         fechanacimed.setText("");
         cargomed.setText("");
         salariomed.setText("");
+        idmed.setText("");
+        this.dispose();
+        new Menuemp().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        new Menumed().setVisible(true);
+        new Menuemp().setVisible(true);
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
-        // TODO add your handling code here:
+        listaesp.add(new Especialidad("Dermatologia"));
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -381,7 +409,32 @@ public class Registromed extends javax.swing.JFrame {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
+        listaesp.add(new Especialidad("Angiologia"));
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+        listaesp.add(new Especialidad("Ginecologia"));        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox6ActionPerformed
+
+    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+        listaesp.add(new Especialidad("Oftalmologia"));        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox8ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        listaesp.add(new Especialidad("Otorrinolaringologia"));        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+        listaesp.add(new Especialidad("Urologia"));        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox5ActionPerformed
+
+    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+        listaesp.add(new Especialidad("Traumatologia"));        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox7ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        listaesp.add(new Especialidad("COVID-19"));
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -427,6 +480,7 @@ public class Registromed extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox5;

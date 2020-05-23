@@ -87,27 +87,24 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="130" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" pref="130" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="docpaci" pref="332" max="32767" attributes="0"/>
-                                      <Component id="nombrepaci" max="32767" attributes="0"/>
-                                      <Component id="fechanacipaci" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="tratamiento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fechaingpaci" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="docpaci" pref="332" max="32767" attributes="0"/>
+                              <Component id="nombrepaci" max="32767" attributes="0"/>
+                              <Component id="fechanacipaci" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tratamiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="fechaingpaci" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="157" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" pref="130" max="-2" attributes="0"/>
+                  <EmptySpace pref="187" max="32767" attributes="0"/>
+                  <Component id="jButton2" min="-2" pref="130" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -211,7 +208,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Courier New" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="MENU PRINCIPAL"/>
+            <Property name="text" type="java.lang.String" value="MENU PACIENTES"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="docpaci">
@@ -267,13 +264,13 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="7">
-                <StringItem index="0" value="Angiolog&#xcc;a"/>
-                <StringItem index="1" value="Dermatolog&#xcc;a"/>
-                <StringItem index="2" value="Ginecolog&#xcc;a"/>
-                <StringItem index="3" value="Oftamolog&#xcc;a"/>
-                <StringItem index="4" value="Otorrinolaringolog&#xcc;a"/>
-                <StringItem index="5" value="Urolog&#xcc;a"/>
-                <StringItem index="6" value="Traumatolog&#xcc;a"/>
+                <StringItem index="0" value="Angiologia"/>
+                <StringItem index="1" value="Dermatologia"/>
+                <StringItem index="2" value="Ginecologia"/>
+                <StringItem index="3" value="Oftalmologia"/>
+                <StringItem index="4" value="Otorrinolaringologia"/>
+                <StringItem index="5" value="Urologia"/>
+                <StringItem index="6" value="Traumatologia"/>
               </StringArray>
             </Property>
           </Properties>

@@ -10,9 +10,7 @@ package SITESACO;
  * @author juanarcilagomez
  */
 public class Verdetalles extends javax.swing.JFrame {
-
-    Persistencia persistencia = new Persistencia();
-    Registropaci lista = new Registropaci();
+Menu lista = new Menu();
 
     /**
      * Creates new form Verdetalles
@@ -223,10 +221,11 @@ public class Verdetalles extends javax.swing.JFrame {
         tabla[0][3] = paci.getFechaing();
         tabla[0][4] = paci.getTratamiento();
         tabla[0][5] = paci.getFechasal();
-       
+        if(paci.getMedicotrata()!=null){
+            tabla[0][6] = paci.getMedicotrata().getNombre();
+        }
         
-     
-        
+
             
        // if (paci.getMedicotrata().getNombre() != null) {
 

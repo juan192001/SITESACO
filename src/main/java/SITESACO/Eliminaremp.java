@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
  * @author juanarcilagomez
  */
 public class Eliminaremp extends javax.swing.JFrame {
-      Persistencia persistencia = new Persistencia();
-    Registroemp lista = new Registroemp();
+Menu lista = new Menu();
+Persistencia persistencia = new Persistencia();
 
     /**
      * Creates new form Eliminar
@@ -86,7 +86,7 @@ public class Eliminaremp extends javax.swing.JFrame {
         jLabel1.setText("GESTION EPS SITESACO");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        jLabel2.setText("MENU PACIENTES");
+        jLabel2.setText("MENU EMPLEADOS");
 
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +101,7 @@ public class Eliminaremp extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Seleccione empleados:");
+        jLabel3.setText("Seleccione un empleado:");
 
         jButton1.setText("Eliminar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,7 +122,7 @@ public class Eliminaremp extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
+                .addContainerGap(143, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,7 +132,7 @@ public class Eliminaremp extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -189,13 +189,15 @@ new Menuemp().setVisible(true);
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         int empIndex = jComboBox1.getSelectedIndex();
-        lista.empleados.remove(empIndex);
-
-       
-        JOptionPane.showMessageDialog(null, "Paciente eliminado con exito");
-
-        //lo guarda
-    persistencia.guardarEnArchivoEmpleado(lista.empleados, lista.medicosl, "empleados.txt");// TODO add your handling code here:
+        Empleados emp = (Empleados) lista.empleados.get(empIndex);
+        if(emp.getTipocargo().equalsIgnoreCase("medico")){
+            new Eliminarmed().Elminarmed(empIndex);
+        }
+        else{
+            lista.empleados.remove(empIndex);
+            persistencia.guardarEnArchivoEmpleado(lista.empleados, lista.medicosl, "empleados.txt");
+            JOptionPane.showMessageDialog(null, "Empleado eliminado con exito");
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

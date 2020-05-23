@@ -145,7 +145,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Courier New" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="MENU PRINCIPAL"/>
+            <Property name="text" type="java.lang.String" value="MENU EMPLEADOS"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -161,7 +161,7 @@
                   <Table columnCount="3" rowCount="4">
                     <Column editable="false" title="Nombre:" type="java.lang.Object"/>
                     <Column editable="false" title="Documento:" type="java.lang.Object"/>
-                    <Column editable="false" title="Cargo:" type="java.lang.Object"/>
+                    <Column editable="false" title="Tipo de cargo:" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>

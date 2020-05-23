@@ -12,10 +12,7 @@ import java.util.ArrayList;
  * @author juanarcilagomez
  */
 public class Verlista extends javax.swing.JFrame {
-
-   
-     Registropaci lista = new Registropaci();
-    
+Menu lista = new Menu();
 
     /**
      * Creates new form Verlista
@@ -99,7 +96,7 @@ public class Verlista extends javax.swing.JFrame {
         jLabel1.setText("GESTION EPS SITESACO");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        jLabel2.setText("MENU PRINCIPAL");
+        jLabel2.setText("MENU PACIENTES");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

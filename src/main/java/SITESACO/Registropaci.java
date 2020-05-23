@@ -15,19 +15,13 @@ import javax.swing.JOptionPane;
 public class Registropaci extends javax.swing.JFrame {
 
     Persistencia persistencia = new Persistencia();
-    ArrayList<Persona> pacientes = new ArrayList<Persona>();
-    ArrayList<Persona> medicos = new ArrayList<Persona>();
-    String txtPacientes = Persistencia.readFromFile("pacientes.txt");
-
+Menu lista = new Menu();
     /**
      * Creates new form Registropaci
      */
     public Registropaci() {
         initComponents();
         this.setLocationRelativeTo(null);
-        if (txtPacientes != null) {
-            pacientes = Pacientes.convertirTXTaObjetos(txtPacientes, medicos);
-        }
 
     }
 
@@ -95,7 +89,7 @@ public class Registropaci extends javax.swing.JFrame {
         jLabel1.setText("GESTION EPS SITESACO");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        jLabel2.setText("MENU PRINCIPAL");
+        jLabel2.setText("MENU PACIENTES");
 
         docpaci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +135,7 @@ public class Registropaci extends javax.swing.JFrame {
             }
         });
 
-        tratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AngiologÌa", "DermatologÌa", "GinecologÌa", "OftamologÌa", "OtorrinolaringologÌa", "UrologÌa", "TraumatologÌa" }));
+        tratamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Angiologia", "Dermatologia", "Ginecologia", "Oftalmologia", "Otorrinolaringologia", "Urologia", "Traumatologia" }));
         tratamiento.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 tratamientoItemStateChanged(evt);
@@ -194,21 +188,20 @@ public class Registropaci extends javax.swing.JFrame {
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel7))))
-                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AngiologiaLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(AngiologiaLayout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(docpaci, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                                    .addComponent(nombrepaci)
-                                    .addComponent(fechanacipaci)
-                                    .addComponent(tratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fechaingpaci))))))
+                        .addGap(1, 1, 1)
+                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(docpaci, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                            .addComponent(nombrepaci)
+                            .addComponent(fechanacipaci)
+                            .addComponent(tratamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechaingpaci))))
                 .addContainerGap(157, Short.MAX_VALUE))
+            .addGroup(AngiologiaLayout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136))
         );
         AngiologiaLayout.setVerticalGroup(
             AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,9 +274,9 @@ public class Registropaci extends javax.swing.JFrame {
 //mensaje de aviso de capturacion de datos
         JOptionPane.showMessageDialog(null, "Datos capturados");
         //se añade al arraylist
-        pacientes.add(paciente);
+        lista.pacientes.add(paciente);
         //lo guarda
-        persistencia.guardarEnArchivoPacientes(pacientes, "pacientes.txt");
+        persistencia.guardarEnArchivoPacientes(lista.pacientes, "pacientes.txt");
 //reinicia los txt
         nombrepaci.setText("");
         docpaci.setText("");

@@ -8,7 +8,7 @@ public class Pacientes extends Persona {
     //Atributos ˙nicos de pacientes
 
     private String fechaing;
-    private String fechasal = "no sale";
+    private String fechasal = "s.f";
     private String tratamiento;
     private Medicos medicotrata;
 

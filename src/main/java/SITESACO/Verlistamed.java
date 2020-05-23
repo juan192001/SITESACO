@@ -10,26 +10,23 @@ package SITESACO;
  * @author juanarcilagomez
  */
 public class Verlistamed extends javax.swing.JFrame {
-//Registroemp lista = new Registroemp();
-
-    Registropaci lista = new Registropaci();
-
+    
+Menu lista = new Menu();
     /**
      * Creates new form Verlistaemp
      */
     public Verlistamed() {
         initComponents();
-
+        
         String tabla[][] = new String[lista.medicos.size()][3];
-
+        
         for (int i = 0; i < lista.medicos.size(); i++) {
             Medicos med = (Medicos) lista.medicos.get(i);
             tabla[i][0] = lista.medicos.get(i).getNombre();
             tabla[i][1] = lista.medicos.get(i).getDoc();
             tabla[i][2] = med.getIdmed();
-
         }
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        verlista.setModel(new javax.swing.table.DefaultTableModel(
                 tabla,
                 new String[]{
                     "Nombre:", "Documento:", "ID:"
@@ -38,11 +35,12 @@ public class Verlistamed extends javax.swing.JFrame {
             boolean[] canEdit = new boolean[]{
                 false, false, false
             };
-
+            
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit[columnIndex];
             }
         });
+        
     }
 
     /**
@@ -60,7 +58,7 @@ public class Verlistamed extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        verlista = new javax.swing.JTable();
         Regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,11 +95,10 @@ public class Verlistamed extends javax.swing.JFrame {
         jLabel1.setText("GESTION EPS SITESACO");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        jLabel2.setText("MENU PRINCIPAL");
+        jLabel2.setText("MENU MEDICOS");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        verlista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null}
@@ -118,7 +115,7 @@ public class Verlistamed extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(verlista);
 
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -184,8 +181,7 @@ public class Verlistamed extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
-        Menuemp volver = new Menuemp();
-        volver.setVisible(true);
+        new Menumed().setVisible(true);
         this.dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_RegresarActionPerformed
 
@@ -233,6 +229,6 @@ public class Verlistamed extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable verlista;
     // End of variables declaration//GEN-END:variables
 }

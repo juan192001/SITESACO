@@ -12,9 +12,8 @@ import java.util.ArrayList;
  * @author juanarcilagomez
  */
 public class Verdetallesemp extends javax.swing.JFrame {
-
-    Persistencia persistencia = new Persistencia();
-    Registroemp lista = new Registroemp();
+Menu lista = new Menu();
+Persistencia persistencia = new Persistencia();
 
 
     /**
@@ -88,7 +87,7 @@ public class Verdetallesemp extends javax.swing.JFrame {
         jLabel1.setText("GESTION EPS SITESACO");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        jLabel2.setText("MENU PACIENTES");
+        jLabel2.setText("MENU EMPLEADOS");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

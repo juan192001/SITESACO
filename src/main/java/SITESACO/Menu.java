@@ -5,6 +5,7 @@
  */
 package SITESACO;
 
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -12,15 +13,33 @@ import javax.swing.JPanel;
  * @author juanarcilagomez
  */
 public class Menu extends javax.swing.JFrame {
+    Persistencia persistencia = new Persistencia();
+    ArrayList<Persona> pacientes = new ArrayList<Persona>();
+    ArrayList<Persona> medicos = new ArrayList<Persona>();
+    ArrayList<Medicos> medicosl = new ArrayList<Medicos>();
 
+    ArrayList<Persona> empleados = new ArrayList<Persona>();
+String txtEmpleados = Persistencia.readFromFile("empleados.txt"); // en este archivo se leen los empleados y medicos
+        String txtPacientes = Persistencia.readFromFile("pacientes.txt");
     /**
      * Creates new form Menu
      */
     public Menu() {
-        
+
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
+        if (txtEmpleados != null) {
+            empleados = Empleados.convertirTXTaObjetos(txtEmpleados);
+            medicosl = Medicos.convertirTXTaObjetosMedicos(txtEmpleados);
+            for (Medicos med : medicosl) {
+                //empleados.add((Persona) med);
+                medicos.add(med);
+            }
+        }
+        if (txtPacientes != null) {
+            pacientes = Pacientes.convertirTXTaObjetos(txtPacientes, medicos);
+        }
     }
 
     /**
@@ -237,26 +256,26 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-Menupaci paci= new Menupaci();
-paci.setVisible(true);
-this.dispose();
+        Menupaci paci = new Menupaci();
+        paci.setVisible(true);
+        this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-Menuemp emp = new Menuemp();
-emp.setVisible(true);
-this.dispose();// TODO add your handling code here:
+        Menuemp emp = new Menuemp();
+        emp.setVisible(true);
+        this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-Menumed med = new Menumed();        // TODO add your handling code here:
-med.setVisible(true);
-this.dispose();
+        Menumed med = new Menumed();        // TODO add your handling code here:
+        med.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-System.exit(0);        // TODO add your handling code here:
+        System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4MouseClicked
 
     /**

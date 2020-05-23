@@ -10,37 +10,38 @@ package SITESACO;
  * @author juanarcilagomez
  */
 public class Verlistaemp extends javax.swing.JFrame {
-Registroemp lista = new Registroemp();
 
+Menu lista = new Menu();
     /**
      * Creates new form Verlistaemp
      */
     public Verlistaemp() {
         initComponents();
-        
+
         String tabla[][] = new String[lista.empleados.size()][3];
-        
+
         for (int i = 0; i < lista.empleados.size(); i++) {
-            Empleados emp = (Empleados)lista.empleados.get(i);
+            Empleados emp = (Empleados) lista.empleados.get(i);
             tabla[i][0] = lista.empleados.get(i).getNombre();
             tabla[i][1] = lista.empleados.get(i).getDoc();
-            tabla[i][2] = emp.getCargo();
+            tabla[i][2] = emp.getTipocargo();
 
         }
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            tabla,
-            new String [] {
-                "Nombre:", "Documento:", "Cargo:"
-            }
+                tabla,
+                new String[]{
+                    "Nombre:", "Documento:", "Tipo de cargo:"
+                }
         ) {
-            boolean[] canEdit = new boolean [] {
+            boolean[] canEdit = new boolean[]{
                 false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
+
     }
 
     /**
@@ -95,7 +96,7 @@ Registroemp lista = new Registroemp();
         jLabel1.setText("GESTION EPS SITESACO");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        jLabel2.setText("MENU PRINCIPAL");
+        jLabel2.setText("MENU EMPLEADOS");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,7 +106,7 @@ Registroemp lista = new Registroemp();
                 {null, null, null}
             },
             new String [] {
-                "Nombre:", "Documento:", "Cargo:"
+                "Nombre:", "Documento:", "Tipo de cargo:"
             }
         ) {
             boolean[] canEdit = new boolean [] {
