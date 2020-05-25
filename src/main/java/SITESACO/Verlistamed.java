@@ -5,21 +5,30 @@
  */
 package SITESACO;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author juanarcilagomez
  */
 public class Verlistamed extends javax.swing.JFrame {
-    
-Menu lista = new Menu();
+
+    Menu lista = new Menu();
+
     /**
      * Creates new form Verlistaemp
      */
     public Verlistamed() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
+        ImageIcon logo = new ImageIcon(getClass().getResource("/imagen/logoinfosalud.png"));
+        ImageIcon icono = new ImageIcon(logo.getImage().getScaledInstance(jLabel3.getWidth(), jLabel3.getHeight(), Image.SCALE_DEFAULT));
+        jLabel3.setIcon(icono);
+        //Se llena un tabla con todos los pacientes y sus atributos principales
+
         String tabla[][] = new String[lista.medicos.size()][3];
-        
+
         for (int i = 0; i < lista.medicos.size(); i++) {
             Medicos med = (Medicos) lista.medicos.get(i);
             tabla[i][0] = lista.medicos.get(i).getNombre();
@@ -35,12 +44,12 @@ Menu lista = new Menu();
             boolean[] canEdit = new boolean[]{
                 false, false, false
             };
-            
+
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit[columnIndex];
             }
         });
-        
+
     }
 
     /**
@@ -60,6 +69,7 @@ Menu lista = new Menu();
         jScrollPane1 = new javax.swing.JScrollPane();
         verlista = new javax.swing.JTable();
         Regresar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,7 +102,7 @@ Menu lista = new Menu();
         );
 
         jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jLabel1.setText("GESTION EPS SITESACO");
+        jLabel1.setText("GESTION EPS INFOSALUD");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel2.setText("MENU MEDICOS");
@@ -131,14 +141,16 @@ Menu lista = new Menu();
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(24, 24, 24))))
+                        .addGap(92, 92, 92))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(212, 212, 212)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,10 +166,13 @@ Menu lista = new Menu();
                 .addGap(20, 20, 20)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,6 +240,7 @@ Menu lista = new Menu();
     private javax.swing.JButton Regresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;

@@ -5,7 +5,10 @@
  */
 package SITESACO;
 
+import java.awt.Image;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,9 +16,10 @@ import javax.swing.JOptionPane;
  * @author juanarcilagomez
  */
 public class Registroemp extends javax.swing.JFrame {
-Persistencia persistencia = new Persistencia();
 
-Menu lista = new Menu();
+    Persistencia persistencia = new Persistencia();
+
+    Menu lista = new Menu();
 
     /**
      * Creates new form Registroemp
@@ -23,6 +27,9 @@ Menu lista = new Menu();
     public Registroemp() {
         initComponents();
         this.setLocationRelativeTo(null);
+        ImageIcon logo = new ImageIcon(getClass().getResource("/imagen/logoinfosalud.png"));
+        ImageIcon icono = new ImageIcon(logo.getImage().getScaledInstance(jLabel9.getWidth(), jLabel9.getHeight(), Image.SCALE_DEFAULT));
+        jLabel9.setIcon(icono);
     }
 
     /**
@@ -53,8 +60,10 @@ Menu lista = new Menu();
         salarioemp = new javax.swing.JTextField();
         tipocargoemp = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         Angiologia.setBackground(new java.awt.Color(211, 229, 242));
 
@@ -85,7 +94,7 @@ Menu lista = new Menu();
         );
 
         jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jLabel1.setText("GESTION EPS SITESACO");
+        jLabel1.setText("GESTION EPS INFOSALUD");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel2.setText("MENU EMPLEADOS");
@@ -164,7 +173,9 @@ Menu lista = new Menu();
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -177,27 +188,29 @@ Menu lista = new Menu();
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AngiologiaLayout.createSequentialGroup()
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AngiologiaLayout.createSequentialGroup()
-                                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel4))
-                                .addGap(71, 71, 71)
-                                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nombreemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel4)
+                            .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(salarioemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AngiologiaLayout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tipocargoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(cargoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tipocargoemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(salarioemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel8)
-                            .addGroup(AngiologiaLayout.createSequentialGroup()
-                                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(docemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fechanaciemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(149, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AngiologiaLayout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(fechanaciemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AngiologiaLayout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(docemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AngiologiaLayout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nombreemp, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(141, Short.MAX_VALUE))
                     .addGroup(AngiologiaLayout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -210,10 +223,13 @@ Menu lista = new Menu();
                 .addGap(20, 20, 20)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(38, 38, 38)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -272,29 +288,45 @@ Menu lista = new Menu();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Empleados empleado = new Empleados();
+        boolean salariostring = false;
+        try {
+            empleado.setSalario(Integer.parseInt(salarioemp.getText()));
+        } catch (Exception e) {
+            System.err.println("Ingresar solo números en el campo salario");
+            salariostring = true;
+        }
 
-        empleado.setNombre(nombreemp.getText());
-        empleado.setDoc(docemp.getText());
-        empleado.setNacimiento(fechanaciemp.getText());
-        empleado.setCargo(cargoemp.getText());
-        empleado.setTipocargo(tipocargoemp.getText());
-        empleado.setSalario(Integer.parseInt(salarioemp.getText()));
+        if (nombreemp.getText().isEmpty() || docemp.getText().isEmpty() || fechanaciemp.getText().isEmpty()
+                || cargoemp.getText().isEmpty() || tipocargoemp.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese todos los campos");
+        } else {
+            if (salariostring) {
+                JOptionPane.showMessageDialog(null, "Ingresar solo números en el campo salario");
+            } else {
+                empleado.setNombre(nombreemp.getText());
+                empleado.setDoc(docemp.getText());
+                empleado.setNacimiento(fechanaciemp.getText());
+                empleado.setCargo(cargoemp.getText());
+                empleado.setTipocargo(tipocargoemp.getText());
+                empleado.setSalario(Integer.parseInt(salarioemp.getText()));
+                //mensaje de aviso de capturacion de datos
+                JOptionPane.showMessageDialog(null, "Datos capturados");
+                //se añade al arraylist
+                lista.empleados.add(empleado);
 
-//mensaje de aviso de capturacion de datos
-        JOptionPane.showMessageDialog(null, "Datos capturados");
-        //se añade al arraylist
-        lista.empleados.add(empleado);
+                //lo guarda
+                persistencia.guardarEnArchivoEmpleado(lista.empleados, lista.medicosl, "empleados.txt");
+                //reinicia los txt
+                nombreemp.setText("");
+                docemp.setText("");
+                fechanaciemp.setText("");
+                cargoemp.setText("");
+                tipocargoemp.setText("");
+                salarioemp.setText("");
+            }
 
-        //lo guarda
-        persistencia.guardarEnArchivoEmpleado(lista.empleados, lista.medicosl, "empleados.txt");
-//reinicia los txt
-        nombreemp.setText("");
-        docemp.setText("");
-        fechanaciemp.setText("");
-        cargoemp.setText("");
-        tipocargoemp.setText("");
-        salarioemp.setText("");
-// TODO add your handling code here:
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void nombreempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreempActionPerformed
@@ -372,6 +404,7 @@ Menu lista = new Menu();
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTextField nombreemp;

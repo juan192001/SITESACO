@@ -5,7 +5,9 @@
  */
 package SITESACO;
 
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +25,10 @@ public class Agregaresp extends javax.swing.JFrame {
      */
     public Agregaresp() {
         initComponents();
+        ImageIcon logo = new ImageIcon(getClass().getResource("/imagen/logoinfosalud.png"));
+        ImageIcon icono = new ImageIcon(logo.getImage().getScaledInstance(jLabel3.getWidth(), jLabel3.getHeight(), Image.SCALE_DEFAULT));
+        jLabel3.setIcon(icono);
+        //Llean el combobox con la lista de médicos
         String wz[] = new String[lista.medicos.size()];
         for (int i = 0; i < lista.medicos.size(); i++) {
 
@@ -63,6 +69,7 @@ public class Agregaresp extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jCheckBox2 = new javax.swing.JCheckBox();
+        jLabel3 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -71,6 +78,7 @@ public class Agregaresp extends javax.swing.JFrame {
         jToggleButton2.setText("jToggleButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         Angiologia.setBackground(new java.awt.Color(211, 229, 242));
 
@@ -101,7 +109,7 @@ public class Agregaresp extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jLabel1.setText("GESTION EPS SITESACO");
+        jLabel1.setText("GESTION EPS INFOSALUD");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel2.setText("MENU MEDICOS");
@@ -197,25 +205,28 @@ public class Agregaresp extends javax.swing.JFrame {
         AngiologiaLayout.setHorizontalGroup(
             AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(24, 24, 24))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addGap(121, 121, 121)
                         .addComponent(jLabel2)
-                        .addGap(84, 84, 84))))
+                        .addGap(83, 83, 83))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addContainerGap())))
             .addGroup(AngiologiaLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AngiologiaLayout.createSequentialGroup()
-                        .addGap(0, 282, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox5)
                             .addComponent(jCheckBox3)
                             .addComponent(jCheckBox7)
                             .addComponent(jCheckBox2))
-                        .addGap(104, 229, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AngiologiaLayout.createSequentialGroup()
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
@@ -227,7 +238,7 @@ public class Agregaresp extends javax.swing.JFrame {
                             .addComponent(jCheckBox8)
                             .addComponent(jCheckBox1)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(221, Short.MAX_VALUE))
                     .addGroup(AngiologiaLayout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -241,11 +252,15 @@ public class Agregaresp extends javax.swing.JFrame {
             .addGroup(AngiologiaLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(38, 38, 38)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -291,6 +306,8 @@ public class Agregaresp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+        //Verifica si el medico ya tiene esta especialidad si no la agrega a su arreglo de especialidades
+
         int medIndex = jComboBox1.getSelectedIndex();
         boolean yatiene = false;
         Medicos med = (Medicos) lista.medicos.get(medIndex);
@@ -307,6 +324,8 @@ public class Agregaresp extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox8ActionPerformed
 
     private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+        //Verifica si el medico ya tiene esta especialidad si no la agrega a su arreglo de especialidades
+
         int medIndex = jComboBox1.getSelectedIndex();
         boolean yatiene = false;
         Medicos med = (Medicos) lista.medicos.get(medIndex);
@@ -322,6 +341,8 @@ public class Agregaresp extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox7ActionPerformed
 
     private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+        //Verifica si el medico ya tiene esta especialidad si no la agrega a su arreglo de especialidades
+
         int medIndex = jComboBox1.getSelectedIndex();
         boolean yatiene = false;
         Medicos med = (Medicos) lista.medicos.get(medIndex);
@@ -337,6 +358,8 @@ public class Agregaresp extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox6ActionPerformed
 
     private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+        //Verifica si el medico ya tiene esta especialidad si no la agrega a su arreglo de especialidades
+
         int medIndex = jComboBox1.getSelectedIndex();
         boolean yatiene = false;
         Medicos med = (Medicos) lista.medicos.get(medIndex);
@@ -352,6 +375,8 @@ public class Agregaresp extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+        //Verifica si el medico ya tiene esta especialidad si no la agrega a su arreglo de especialidades
+
         int medIndex = jComboBox1.getSelectedIndex();
         boolean yatiene = false;
         Medicos med = (Medicos) lista.medicos.get(medIndex);
@@ -367,6 +392,8 @@ public class Agregaresp extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        //Verifica si el medico ya tiene esta especialidad si no la agrega a su arreglo de especialidades
+
         int medIndex = jComboBox1.getSelectedIndex();
         boolean yatiene = false;
         Medicos med = (Medicos) lista.medicos.get(medIndex);
@@ -382,6 +409,8 @@ public class Agregaresp extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        //Verifica si el medico ya tiene esta especialidad si no la agrega a su arreglo de especialidades
+
         int medIndex = jComboBox1.getSelectedIndex();
         boolean yatiene = false;
         Medicos med = (Medicos) lista.medicos.get(medIndex);
@@ -401,6 +430,7 @@ public class Agregaresp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        //Elimina esta ventana y abre la de menú médicos
         new Menumed().setVisible(true);
         this.dispose();// TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
@@ -420,6 +450,7 @@ public class Agregaresp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        //Verifica si el medico ya tiene esta especialidad si no la agrega a su arreglo de especialidades
         int medIndex = jComboBox1.getSelectedIndex();
         boolean yatiene = false;
         Medicos med = (Medicos) lista.medicos.get(medIndex);
@@ -486,6 +517,7 @@ public class Agregaresp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;

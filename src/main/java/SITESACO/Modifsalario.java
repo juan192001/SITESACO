@@ -13,14 +13,18 @@ import javax.swing.JOptionPane;
  * @author juanarcilagomez
  */
 public class Modifsalario extends javax.swing.JFrame {
-Menu lista = new Menu();
-Persistencia persistencia = new Persistencia();
+
+    Menu lista = new Menu();
+    Persistencia persistencia = new Persistencia();
+
     /**
      * Creates new form Siyno
      */
     public Modifsalario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        //Se llena el arreglo con la lista de empleados
+
         String wz[] = new String[lista.empleados.size()];
         for (int i = 0; i < lista.empleados.size(); i++) {
 
@@ -46,6 +50,7 @@ Persistencia persistencia = new Persistencia();
         jLabel2 = new javax.swing.JLabel();
         nuevosalario = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -59,6 +64,7 @@ Persistencia persistencia = new Persistencia();
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(211, 229, 242));
 
@@ -75,6 +81,13 @@ Persistencia persistencia = new Persistencia();
             }
         });
 
+        jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -82,17 +95,19 @@ Persistencia persistencia = new Persistencia();
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nuevosalario)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nuevosalario)
+                            .addComponent(jComboBox1, 0, 217, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +121,9 @@ Persistencia persistencia = new Persistencia();
                     .addComponent(nuevosalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(27, 27, 27)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -125,17 +142,33 @@ Persistencia persistencia = new Persistencia();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Modifica el atributo del objeto seleccionado
         int empIndex = jComboBox1.getSelectedIndex();
+        boolean salariostring = false;
         Persona per = lista.empleados.get(empIndex);
         Empleados emp = (Empleados) per;
-        emp.setSalario(Integer.parseInt(nuevosalario.getText()));
-        JOptionPane.showMessageDialog(null, "Datos capturados");
-        persistencia.guardarEnArchivoEmpleado(lista.empleados, lista.medicosl, "empleados.txt");
-        this.dispose();
-        new Menuemp().setVisible(true);
-        
-        // TODO add your handling code here:
+        try {
+            emp.setSalario(Integer.parseInt(nuevosalario.getText()));
+        } catch (Exception e) {
+            System.err.println("Ingresar solo números en el campo salario");
+            salariostring = true;
+        }
+        if (salariostring) {
+            JOptionPane.showMessageDialog(null, "Ingresar solo números en el campo salario");
+        } else {
+            emp.setSalario(Integer.parseInt(nuevosalario.getText()));
+            JOptionPane.showMessageDialog(null, "Datos capturados");
+            persistencia.guardarEnArchivoEmpleado(lista.empleados, lista.medicosl, "empleados.txt");
+            this.dispose();
+            new Menuemp().setVisible(true);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new Menuemp().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,6 +214,7 @@ Persistencia persistencia = new Persistencia();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

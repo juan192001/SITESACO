@@ -5,7 +5,8 @@
  */
 package SITESACO;
 
-import java.util.ArrayList;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,13 +16,17 @@ import javax.swing.JOptionPane;
 public class Registropaci extends javax.swing.JFrame {
 
     Persistencia persistencia = new Persistencia();
-Menu lista = new Menu();
+    Menu lista = new Menu();
+
     /**
      * Creates new form Registropaci
      */
     public Registropaci() {
         initComponents();
         this.setLocationRelativeTo(null);
+        ImageIcon logo = new ImageIcon(getClass().getResource("/imagen/logoinfosalud.png"));
+        ImageIcon icono = new ImageIcon(logo.getImage().getScaledInstance(jLabel9.getWidth(), jLabel9.getHeight(), Image.SCALE_DEFAULT));
+        jLabel9.setIcon(icono);
 
     }
 
@@ -52,10 +57,12 @@ Menu lista = new Menu();
         tratamiento = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         Angiologia.setBackground(new java.awt.Color(211, 229, 242));
 
@@ -86,7 +93,7 @@ Menu lista = new Menu();
         );
 
         jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jLabel1.setText("GESTION EPS SITESACO");
+        jLabel1.setText("GESTION EPS INFOSALUD");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel2.setText("MENU PACIENTES");
@@ -163,7 +170,9 @@ Menu lista = new Menu();
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -209,10 +218,13 @@ Menu lista = new Menu();
                 .addGap(20, 20, 20)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(38, 38, 38)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -260,31 +272,33 @@ Menu lista = new Menu();
     }//GEN-LAST:event_docpaciActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-//Pacientes paci = new Pacientes(jTextField2.getText());
-//paci.agregarPersona();
+
         Pacientes paciente = new Pacientes();
-
-//capturar los datos del paciente
-        paciente.setNombre(nombrepaci.getText());
-        paciente.setDoc(docpaci.getText());
-        paciente.setNacimiento(fechanacipaci.getText());
-        paciente.setFechaing(fechaingpaci.getText());
-        String trata = (String) tratamiento.getSelectedItem();
-        paciente.setTratamiento(trata);
+        if (nombrepaci.getText().isEmpty() || docpaci.getText().isEmpty() || fechanacipaci.getText().isEmpty()
+                || fechaingpaci.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese todos los campos");
+        } else {
+            //capturar los datos del paciente
+            paciente.setNombre(nombrepaci.getText());
+            paciente.setDoc(docpaci.getText());
+            paciente.setNacimiento(fechanacipaci.getText());
+            paciente.setFechaing(fechaingpaci.getText());
+            String trata = (String) tratamiento.getSelectedItem();
+            paciente.setTratamiento(trata);
 //mensaje de aviso de capturacion de datos
-        JOptionPane.showMessageDialog(null, "Datos capturados");
-        //se añade al arraylist
-        lista.pacientes.add(paciente);
-        //lo guarda
-        persistencia.guardarEnArchivoPacientes(lista.pacientes, "pacientes.txt");
+            JOptionPane.showMessageDialog(null, "Datos capturados");
+            //se añade al arraylist
+            lista.pacientes.add(paciente);
+            //lo guarda
+            persistencia.guardarEnArchivoPacientes(lista.pacientes, "pacientes.txt");
 //reinicia los txt
-        nombrepaci.setText("");
-        docpaci.setText("");
-        fechanacipaci.setText("");
-        fechaingpaci.setText("");
+            nombrepaci.setText("");
+            docpaci.setText("");
+            fechanacipaci.setText("");
+            fechaingpaci.setText("");
+        }
 
-//persistencia.guardarEnArchivoPacientes(pacientes, "pacientes.txt");
-// TODO add your handling code here:
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void nombrepaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombrepaciActionPerformed
@@ -368,6 +382,7 @@ Menu lista = new Menu();
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTextField nombrepaci;

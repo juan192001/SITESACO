@@ -5,18 +5,27 @@
  */
 package SITESACO;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author juanarcilagomez
  */
 public class Verdetalles extends javax.swing.JFrame {
-Menu lista = new Menu();
+
+    Menu lista = new Menu();
 
     /**
      * Creates new form Verdetalles
      */
     public Verdetalles() {
         initComponents();
+        ImageIcon logo = new ImageIcon(getClass().getResource("/imagen/logoinfosalud.png"));
+        ImageIcon icono = new ImageIcon(logo.getImage().getScaledInstance(jLabel4.getWidth(), jLabel4.getHeight(), Image.SCALE_DEFAULT));
+        jLabel4.setIcon(icono);
+        //Se llena el arreglo con la lista de pacientes
+
         String wz[] = new String[lista.pacientes.size()];
         for (int i = 0; i < lista.pacientes.size(); i++) {
 
@@ -48,8 +57,10 @@ Menu lista = new Menu();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(211, 229, 242));
 
@@ -80,7 +91,7 @@ Menu lista = new Menu();
         );
 
         jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jLabel1.setText("GESTION EPS SITESACO");
+        jLabel1.setText("GESTION EPS INFOSALUD");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel2.setText("MENU PACIENTES");
@@ -137,14 +148,8 @@ Menu lista = new Menu();
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 18, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(24, 24, 24))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))
@@ -156,6 +161,17 @@ Menu lista = new Menu();
                         .addGap(143, 143, 143)
                         .addComponent(Regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(150, 150, 150))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(84, 84, 84))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,10 +179,13 @@ Menu lista = new Menu();
                 .addGap(20, 20, 20)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(38, 38, 38)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -204,49 +223,45 @@ Menu lista = new Menu();
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
 
         // TODO add your handling code here:
-       
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Se guarda el paciente seleccionado
         int paciIndex = jComboBox1.getSelectedIndex();
-       
+
         Persona per = lista.pacientes.get(paciIndex);
         Pacientes paci = (Pacientes) per;
         String tabla[][] = new String[1][7];
-
+        // Se muestran sus atributos en un tabla
         tabla[0][0] = paci.getNombre();
         tabla[0][1] = lista.pacientes.get(paciIndex).getDoc();
         tabla[0][2] = lista.pacientes.get(paciIndex).getNacimiento();
         tabla[0][3] = paci.getFechaing();
         tabla[0][4] = paci.getTratamiento();
         tabla[0][5] = paci.getFechasal();
-        if(paci.getMedicotrata()!=null){
+        if (paci.getMedicotrata() != null) {
             tabla[0][6] = paci.getMedicotrata().getNombre();
         }
-        
 
-            
-       // if (paci.getMedicotrata().getNombre() != null) {
-
+        // if (paci.getMedicotrata().getNombre() != null) {
         //    tabla[0][6] = paci.getMedicotrata().getNombre();
         //}
-        
-                jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                        tabla,
-                        new String[]{
-                            "Nombre:", "Documento:", "Nacimiento:", "Ingreso:", "Tratamiento:", "Salida:", "Atendido por:"
-                        }
-                ) {
-                    boolean[] canEdit = new boolean[]{
-                        false, false, false, false, false, false, false
-                    };
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                tabla,
+                new String[]{
+                    "Nombre:", "Documento:", "Nacimiento:", "Ingreso:", "Tratamiento:", "Salida:", "Atendido por:"
+                }
+        ) {
+            boolean[] canEdit = new boolean[]{
+                false, false, false, false, false, false, false
+            };
 
-                    public boolean isCellEditable(int rowIndex, int columnIndex) {
-                        return canEdit[columnIndex];
-                    }
-                });
- // TODO add your handling code here:
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit[columnIndex];
+            }
+        });
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -291,6 +306,7 @@ Menu lista = new Menu();
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;

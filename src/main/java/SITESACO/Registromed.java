@@ -5,7 +5,9 @@
  */
 package SITESACO;
 
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +26,11 @@ public class Registromed extends javax.swing.JFrame {
     public Registromed() {
         initComponents();
         this.setLocationRelativeTo(null);
+        ImageIcon logo = new ImageIcon(getClass().getResource("/imagen/logoinfosalud.png"));
+        ImageIcon icono = new ImageIcon(logo.getImage().getScaledInstance(jLabel8.getWidth(), jLabel8.getHeight(), Image.SCALE_DEFAULT));
+        jLabel8.setIcon(icono);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,6 +74,7 @@ public class Registromed extends javax.swing.JFrame {
         salariomed = new javax.swing.JTextField();
         idmed = new javax.swing.JTextField();
         jCheckBox2 = new javax.swing.JCheckBox();
+        jLabel8 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -76,6 +83,7 @@ public class Registromed extends javax.swing.JFrame {
         jToggleButton2.setText("jToggleButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         Angiologia.setBackground(new java.awt.Color(211, 229, 242));
 
@@ -106,7 +114,7 @@ public class Registromed extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
-        jLabel1.setText("GESTION EPS SITESACO");
+        jLabel1.setText("GESTION EPS INFOSALUD");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         jLabel2.setText("MENU MEDICOS");
@@ -215,7 +223,9 @@ public class Registromed extends javax.swing.JFrame {
             AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -225,32 +235,36 @@ public class Registromed extends javax.swing.JFrame {
                         .addGap(84, 84, 84))))
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(63, 63, 63)
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(docmed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nombremed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(79, 79, 79)
-                        .addComponent(cargomed, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(salariomed, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(fechanacimed, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AngiologiaLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel7))
+                                .addGap(88, 88, 88))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AngiologiaLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)))
+                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cargomed, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fechanacimed, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(salariomed, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AngiologiaLayout.createSequentialGroup()
                         .addComponent(jCheckBox1)
@@ -284,10 +298,13 @@ public class Registromed extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(38, 38, 38)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AngiologiaLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -298,40 +315,46 @@ public class Registromed extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(docmed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(residente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(fechanacimed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addGap(11, 11, 11)
+                    .addComponent(residente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(docmed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addComponent(fechanacimed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cargomed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(16, 16, 16)
+                        .addGap(44, 44, 44)
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox4)
-                            .addComponent(salariomed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCheckBox5))
                         .addGap(18, 18, 18)
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jCheckBox6)
                             .addComponent(jCheckBox7)))
                     .addGroup(AngiologiaLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel4))
-                    .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jCheckBox1)
-                        .addComponent(jCheckBox3)))
-                .addGap(18, 18, 18)
+                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AngiologiaLayout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox1)
+                                    .addComponent(jCheckBox3)))
+                            .addGroup(AngiologiaLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cargomed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7))))
+                        .addGap(18, 18, 18)
+                        .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(salariomed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))))
+                .addGap(21, 21, 21)
                 .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AngiologiaLayout.createSequentialGroup()
                         .addComponent(jCheckBox8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addGroup(AngiologiaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -362,36 +385,53 @@ public class Registromed extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         Empleados empleado = new Empleados();
-        String resiIndex = (String) residente.getSelectedItem();
-        empleado.setNombre(nombremed.getText());
-        empleado.setDoc(docmed.getText());
-        empleado.setNacimiento(fechanacimed.getText());
-        empleado.setCargo(cargomed.getText());
-        empleado.setSalario(Integer.parseInt(salariomed.getText()));
-        empleado.setTipocargo("medico");
-        lista.empleados.add(empleado);
-        Medicos med = new Medicos(empleado);
-        med.setIdmed(idmed.getText());
-        med.setResidente(resiIndex);
-        med.setEspecialidad(listaesp);
+        boolean salariostring = false;
+        try {
+            empleado.setSalario(Integer.parseInt(salariomed.getText()));
+        } catch (Exception e) {
+            System.err.println("Ingresar solo números en el campo salario");
+            salariostring = true;
+        }
+
+        if (nombremed.getText().isEmpty() || docmed.getText().isEmpty() || fechanacimed.getText().isEmpty()
+                || cargomed.getText().isEmpty() || idmed.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese todos los campos");
+        } else {
+            if (salariostring) {
+                JOptionPane.showMessageDialog(null, "Ingresar solo números en el campo salario");
+            } else {
+                String resiIndex = (String) residente.getSelectedItem();
+                empleado.setNombre(nombremed.getText());
+                empleado.setDoc(docmed.getText());
+                empleado.setNacimiento(fechanacimed.getText());
+                empleado.setCargo(cargomed.getText());
+                empleado.setSalario(Integer.parseInt(salariomed.getText()));
+                empleado.setTipocargo("medico");
+                lista.empleados.add(empleado);
+                Medicos med = new Medicos(empleado);
+                med.setIdmed(idmed.getText());
+                med.setResidente(resiIndex);
+                med.setEspecialidad(listaesp);
 
 //mensaje de aviso de capturacion de datos
-        JOptionPane.showMessageDialog(null, "Datos capturados");
-        //se añade al arraylist
-        lista.medicos.add(med);
-        lista.medicosl.add(med);
+                JOptionPane.showMessageDialog(null, "Datos capturados");
+                //se añade al arraylist
+                lista.medicos.add(med);
+                lista.medicosl.add(med);
 
-        //lo guarda
-        persistencia.guardarEnArchivoEmpleado(lista.empleados, lista.medicosl, "empleados.txt");
+                //lo guarda
+                persistencia.guardarEnArchivoEmpleado(lista.empleados, lista.medicosl, "empleados.txt");
 //reinicia los txt
-        nombremed.setText("");
-        docmed.setText("");
-        fechanacimed.setText("");
-        cargomed.setText("");
-        salariomed.setText("");
-        idmed.setText("");
-        this.dispose();
-        new Menuemp().setVisible(true);
+                nombremed.setText("");
+                docmed.setText("");
+                fechanacimed.setText("");
+                cargomed.setText("");
+                salariomed.setText("");
+                idmed.setText("");
+                this.dispose();
+                new Menuemp().setVisible(true);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -496,6 +536,7 @@ public class Registromed extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel7;
